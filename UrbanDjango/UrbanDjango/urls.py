@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.urls import path
 
 from task2.views import indexf, IndexC
-from task3.views import (ScheduleC, ProjectC, CrudC)
+# from task3.views import (ScheduleC, ProjectC, CrudC)
+from task4.views import (ScheduleC, ProjectC, CrudC)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('function/', indexf),
     path('class/', IndexC.as_view()),
+    path('', ScheduleC.as_view()),
     path('schedule/', ScheduleC.as_view()),
     path('schedule/project/', ProjectC.as_view()),
     path('schedule/crud/', CrudC.as_view()),

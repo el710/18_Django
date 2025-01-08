@@ -1,0 +1,18 @@
+{% extends 'menu.html' %}
+
+{% block pagename %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <h3>Manager</h3>
+    <ul>
+        <li>Create</li>
+        <li>Read</li>
+        <li>Update</li>
+        <li>Delete</li>
+    </ul>
+
+    <button><a href="/schedule/">Back to main page</a></button>
+{% endblock %}

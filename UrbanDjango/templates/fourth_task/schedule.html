@@ -1,0 +1,16 @@
+{% extends "menu.html" %}
+
+{% block pagename %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h3></h3>
+    <ul>
+
+    {% for item in events %}
+        <li>{{ item }}</li>
+    {% endfor %}
+
+
+{% endblock %}

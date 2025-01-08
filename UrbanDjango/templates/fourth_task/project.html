@@ -1,0 +1,18 @@
+{% extends 'menu.html' %}
+
+{% block pagename %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    {% for proj in projects %}
+        <h3>{{proj.name}}</h3>
+        <ul>
+            {% for event in proj.events %}
+                <li>{{event}} <button>Add</button></li>
+            {% endfor %}    
+        </ul>
+    {% endfor%}
+
+    <button><a href="/schedule/">Back to main page</a></button>
+{% endblock %}
