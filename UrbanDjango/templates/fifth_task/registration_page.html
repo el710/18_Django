@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% block meta %}
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}
+
+    <title>{{title}}</title>
+
+    {% block link_rel %}
+        <link rel="stylesheet" href="{% static 'registration.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block sys_title%}
+    <div class="header">
+        <img class="photo" src="{% static 'urban.png' %}" alt="***" ><br>
+        <p class="title">
+            Urban Авторизация
+        </p>
+    </div>
+    {%endblock%}
+
+    <div>{{errors}}</div>
+
+    <div class="context">
+        <form method="post" >
+            {% csrf_token %}
+            {% block input_data %}               
+                <div>
+                    <label for="id_username">Username </label>                                      
+                    <input type="text" name="user_name" maxlength="30" required id="id_username">
+                </div>
+                <div>
+                    <label for="id_password">Password </label>
+                    <input type="password" name="user_password" minlength="8" required id="id_password">
+                </div>
+                <div>
+                    <label for="id_repassword">Repeat password </label>
+                    <input type="password" name="user_repassword" minlength="8" required id="id_repassword">
+                </div>
+                <div>
+                    <label for="id_age">Age </label>
+                    <input type="number" name="user_age" maxlength="3" min="5" max="100" id="id_age" >
+                </div>
+            {% endblock %}
+
+            <button class="button" type="submit">Enter</button>
+        </form>
+    </div>     
+    
+
+    <hr>
+    {% block form_link %}
+        <a href="/django_sign_up"> or use Django form...</a>
+    {% endblock %}
+
+    <hr>
+    <div align="center">
+        {{ welcome }}
+    </div>
+
+</body>
+</html>
